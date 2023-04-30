@@ -96,7 +96,7 @@ async function returnReplies(thread_id) {
 
 async function returnThread(thread_id) {
   try {
-    const thread = await Thread.findOne({_id: thread_id}).populate({ path: 'replies', options: {sort: { created_on: -1 }}});
+    const thread = await Thread.findById(thread_id);
     const replies = await returnReplies(thread_id);
     const jsonedThread = {
       _id: thread._id,
