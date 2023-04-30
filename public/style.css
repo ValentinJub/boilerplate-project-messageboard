@@ -1,37 +1,308 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
+/* Style for header */
+header {
+  background-color: #ff4500;
+  color: white;
   padding: 10px;
-  background-color: hwb(120 12% 36% / 0.781);
 }
 
-.replies {
-  margin-left: 50px;
+/* Style for h1 inside header */
+#boardTitle {
+  margin: 0;
 }
 
-.reply {
-  border: 1px dotted black;
-  margin: 5px;
-  padding: 5px;
-}
-
-.newReply {
-  margin: 10px 5px 10px 5px;
-}
-
-.thread {
-  border: 2px solid black;
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-.id {
-  font-size: 10.5px;
-}
-
+/* Style for div containing form to submit a new thread */
 #submitNewThread {
-  margin: 50px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Style for the form to submit a new thread */
+#newThread {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#newThread textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#newThread input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#newThread input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the form to submit a report thread */
+#reportThread {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#reportThread textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#reportThread input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#reportThread input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the form to submit a delete thread */
+#deleteThread {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#deleteThread textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#deleteThread input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#deleteThread input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the form to submit a new thread */
+#newReply {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#newReply textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#newReply input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#newReply input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the form to submit a report thread */
+#reportReply {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#reportReply textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#reportReply input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#reportReply input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the form to submit a delete thread */
+#deleteReply {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form */
+#deleteReply textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form */
+#deleteReply input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+#deleteReply input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the div containing the threads */
+#boardDisplay {
+  margin-top: 30px;
+}
+
+/* Style for hr element */
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* Style for the thread */
+.thread {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #f9f9f9;
+}
+
+/* Style for the id inside a thread */
+.thread .id {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Style for the form to report a thread or reply */
+form[id^="report"] {
+  display: inline;
+}
+
+/* Style for the delete button in the form to delete a thread or reply */
+form[id^="delete"] input[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the h3 inside a thread */
+.thread h3 {
+  margin: 10px 0;
+}
+
+/* Style for the replies section inside a thread */
+.thread .replies {
+  margin-top: 20px;
+}
+
+/* Style for the reply */
+.thread .reply {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+/* Style for the form to report a reply */
+.thread form[id^="report"] {
+  margin-bottom: 0;
+}
+
+/* Style for the form to delete a reply */
+.thread form[id^="delete"] {
+  display: inline;
+}
+
+/* Style for the new reply section inside a thread */
+.thread .newReply {
+  margin-top: 20px;
+}
+
+/* Style for the form to submit a new reply */
+.thread #newReply {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the text area in the form to submit a new reply */
+.thread #newReply textarea {
+  margin: 10px 0;
+}
+
+/* Style for the input fields in the form to submit a new reply */
+.thread #newReply input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* Style for the submit button in the form */
+button[type="submit"] {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 12px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Change the background color of the button on hover */
+button[type="submit"]:hover {
+  width: 50%;
+  /* center the button */
+  margin: 0 auto;
+  background-color: #45a049;
 }
