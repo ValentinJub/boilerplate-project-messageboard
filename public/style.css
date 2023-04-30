@@ -5,6 +5,7 @@
 
 body {
   padding: 10px;
+  background-color: hwb(120 12% 36% / 0.781);
 }
 
 .replies {

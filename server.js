@@ -8,12 +8,24 @@ const methodOverride = require('method-override');
 
 
 const threadsRouter = require('./routes/threads.js');
+const repliesRouter = require('./routes/replies.js');
+const boardRouter   = require('./routes/boards.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 const mongoose          = require('mongoose');
 const helmet            = require('helmet');
 
 const app = express();
+
+app.use(helmet({
+  frameguard: { action: 'sameorigin' },
+  dnsPrefetchControl: { allow: false },
+  referrerPolicy: { policy: 'same-origin' },
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'code.jquery.com']
+  }
+}));
 
 mongoose.connect(process.env.DB).then(
   () => { console.log('Connected to database')},
@@ -25,27 +37,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var path = require ('path');
-app.use(express.static(path.join(__dirname + '../public')));
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 app.set('views, __dirname + ./views');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(methodOverride('_method'));
-
-
-
-
-//Sample front-end
-app.route('/b/:board/')
-  .get(function (req, res) {
-    res.render('board');
-  });
-
-app.route('/b/:board/:threadid')
-  .get(function (req, res) {
-    res.render('thread')
-  });
 
 //Index page (static HTML)
 app.route('/')
@@ -57,7 +55,9 @@ app.route('/')
 fccTestingRoutes(app);
 
 //Routing for API 
+app.use('/b', boardRouter);
 app.use('/api/threads', threadsRouter)
+app.use('/api/replies', repliesRouter)
 
 
 
